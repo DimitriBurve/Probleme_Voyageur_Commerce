@@ -10,7 +10,7 @@ public class test {
 
         n1.addNode(n2);
         n1.addNode(n3);
-//        n1.addNode(n4);
+        n1.addNode(n4);
         n2.addNode(n4);
         n2.addNode(n3);
         n3.addNode(n4);
