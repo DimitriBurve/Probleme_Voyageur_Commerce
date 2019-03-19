@@ -120,10 +120,11 @@ public class test {
         initialisation(g, nodeDebut);
         Node n1;
         Graph q = g;
+        List<Node> listResult = new ArrayList<Node>();
         while (q.getListNodes().size() != 0){
             n1 = trouve_min(q);
             System.out.println("min : "+n1.getId());
-
+            listResult.add(n1);
             q = q.deleteNode(n1);
             for (Node n2 : n1.getChildren()){
                 System.out.println("fils de min : "+n2.getId());
@@ -133,8 +134,9 @@ public class test {
                 }
             }
         }
-        List<Node> listResult = new ArrayList<Node>();
+
         Node s = nodeFin;
+        System.out.println("node s :" + s.getId());
         while (s != nodeDebut){
             listResult.add(s);
             System.out.println(s.getId());
