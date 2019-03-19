@@ -42,9 +42,7 @@ public class Node {
         this.value = value;
     }
 
-    public int getValue(){
-        return this.value;
-    }
+    public int getValue(){ return this.value; }
 
     public void setPredecesseur(Node node){ predec= node; }
 
