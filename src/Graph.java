@@ -65,4 +65,36 @@ public class Graph {
         listNodes.remove(node);
         return this;
     }
+
+    public Edge minSearch(List<Edge> list){
+        int value = 999999999;
+        Edge edge = null;
+        for (int i=0; i<list.size();i++){
+            if (list.get(i).getValue()<value){
+                value = list.get(i).getValue();
+                edge = list.get(i);
+            }
+        }
+        return edge;
+    }
+
+    public Edge searchEdgeFromN1AndN2(Node n1, Node n2){
+        Edge edge = null;
+        for (Edge e: listEdges){
+            if (e.getN1() == n1 && e.getN2() == n2){
+                edge = e;
+            }
+        }
+        return edge;
+    }
+
+    public List<Edge> foundAllEdgeN1(Node n1){
+        List<Edge> list = new ArrayList<>();
+        for (Edge e: listEdges){
+            if ((e.getN1() == n1 ) || (e.getN2() == n1 )){
+                list.add(e);
+            }
+        }
+        return list;
+    }
 }

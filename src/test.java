@@ -10,7 +10,7 @@ public class test {
 
         n1.addNode(n2);
         n1.addNode(n3);
-        n1.addNode(n4);
+//        n1.addNode(n4);
         n2.addNode(n4);
         n2.addNode(n3);
         n3.addNode(n4);
@@ -68,7 +68,37 @@ public class test {
         }
 
 
+        System.out.println("dij");
         calcule(g1, n1, n1);
+        System.out.println();
+        System.out.println("naif");
+        naive(g1,listEdges,n1);
+        System.out.println("noeud : " +n1.getId());
+    }
+
+    private static void naive(Graph g1, List<Edge> listEdges, Node nDebut) {
+        Node n1 = nDebut;
+        System.out.println("noeud : "+n1.getId());
+        List<Node> nodeList = new ArrayList<>();
+        nodeList.add(n1);
+        while (listEdges.size()!=0){
+            List<Edge> list = new ArrayList<>();
+            for (Edge e: listEdges){
+                if (e.getN1() == n1){
+                    list.add(g1.searchEdgeFromN1AndN2(n1, e.getN2()));
+                }
+            }
+
+            Edge edge = g1.minSearch(list);
+
+            List<Edge> listDel = g1.foundAllEdgeN1(n1);
+
+            for (Edge e: listDel){
+                listEdges.remove(e);
+            }
+
+            naive(g1, listEdges, edge.getN2());
+        }
     }
 
     public static void connexe(Graph graph, Node node){
