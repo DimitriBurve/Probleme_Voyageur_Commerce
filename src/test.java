@@ -4,7 +4,7 @@ import java.util.List;
 public class test {
     /**
      * main function
-     * @param args arguments of main
+     * @param args arguments of main function
      */
     public static void main(String[] args) {
         Node n1 = new Node(1);
